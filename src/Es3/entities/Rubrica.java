@@ -1,19 +1,18 @@
 package Es3.entities;
 
 import java.util.HashMap;
-import java.util.Set;
+import java.util.Objects;
 
 public class Rubrica {
-    private HashMap<String, Integer> contacts;
+    private final HashMap<String, Integer> contacts;
 
     public Rubrica() {
         this.contacts = new HashMap<>();
     }
 
     public static void printRubrica(HashMap<String, Integer> list) {
-        Set<String> keyContact = list.keySet();
         System.out.println("Rubrica");
-        for (String contact : keyContact) {
+        for (String contact : list.keySet()) {
             System.out.println("    " + contact + ": " + list.get(contact));
         }
     }
@@ -31,22 +30,20 @@ public class Rubrica {
     }
 
     public void searchContactByNumber(int number) {
-        String result = "";
-        Set<String> keyContact = contacts.keySet();
-        for (String contact : keyContact) {
-            if (number == contacts.get(contact)) result += contact;
+        StringBuilder result = new StringBuilder();
+        for (String contact : contacts.keySet()) {
+            if (number == contacts.get(contact)) result.append(contact);
         }
-        if (result != "") System.out.println(result + ": " + number);
+        if (!result.isEmpty()) System.out.println(result + ": " + number);
         else System.out.println("Nessuno numero trovato in rubrica che corrisponde a " + number);
     }
 
     public void searchContactByName(String name) {
-        String result = "";
-        Set<String> keyContact = contacts.keySet();
-        for (String contact : keyContact) {
-            if (name == contact) result += contacts.get(contact);
+        StringBuilder result = new StringBuilder();
+        for (String contact : contacts.keySet()) {
+            if (Objects.equals(name, contact)) result.append(contacts.get(contact));
         }
-        if (result != "") System.out.println(name + ": " + result);
+        if (!result.isEmpty()) System.out.println(name + ": " + result);
         else System.out.println("Nessuno nome trovato in rubrica che corrisponde a " + name);
     }
 

@@ -6,10 +6,12 @@ public class Main {
     public static void main(String[] args) {
         Rubrica rubrica = new Rubrica();
         System.out.println("\n__________add__________");
-        rubrica.addContact("Alessio", 1213);
+        rubrica.addContact("Alessio", 5672);
+        rubrica.addContact("Giovanni", 1213);
         rubrica.addContact("Davide", 1234);
-        rubrica.addContact("Federico", 4291);
+        rubrica.addContact("Francesco", 4291);
         rubrica.addContact("Cristian", 5567);
+        rubrica.addContact("Federico", 5567);
         System.out.println(rubrica + "\n\n__________remove__________");
         rubrica.removeContact("Cristian");
         System.out.println(rubrica);

@@ -35,9 +35,15 @@ public class Main {
     }
 
     public static void printEveOrOdd(boolean value, List<Integer> listNumber) {
-        for (int i = 0; i < listNumber.size(); i++) {
-            if (value & i % 2 == 0) System.out.println("Pari: " + listNumber.get(i));
-            if (!value & i % 2 != 0) System.out.println("Dispari: " + listNumber.get(i));
+        if (value) System.out.println("\nPari");
+        else System.out.println("\nDispari");
+
+        for (int i = value ? 0 : 1; i < listNumber.size(); i += 2) {
+            System.out.print("  " + listNumber.get(i) + " ");
         }
+//        for (int i = 0; i < listNumber.size(); i++) {
+//            if (value & i % 2 == 0) System.out.print("  " + listNumber.get(i) + " ");
+//            if (!value & i % 2 != 0) System.out.print("  " + listNumber.get(i) + " ");
+//        }
     }
 }

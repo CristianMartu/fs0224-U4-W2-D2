@@ -1,7 +1,7 @@
 package Es1;
 
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Set<String> arraySet = new HashSet<>();
-        Set<String> duplicateSet = new HashSet<>();
+        ArrayList<String> duplicateSet = new ArrayList<>();
         System.out.print("Inserire quantità di stringhe da aggiungere: ");
         try {
             int num = Integer.parseInt(scanner.nextLine());
@@ -26,7 +26,7 @@ public class Main {
                 System.out.println("Numero di parole distinte: " + arraySet.size());
                 System.out.println("Elenco di parole distinte: " + arraySet);
             } else System.out.println("Errore: numero minore di 0");
-        } catch (InputMismatchException error) {
+        } catch (NumberFormatException error) {
             System.out.println(error);
         }
 
